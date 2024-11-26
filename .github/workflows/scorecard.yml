@@ -23,4 +23,4 @@ jobs:
       - run: |
           wget https://github.com/ossf/scorecard/releases/download/v5.0.0/scorecard_5.0.0_linux_amd64.tar.gz
           tar -xvzf scorecard_5.0.0_linux_amd64.tar.gz
-          ./scorecard_5.0.0_linux_amd64 -h
+          ./scorecard-linux-amd64 -h
