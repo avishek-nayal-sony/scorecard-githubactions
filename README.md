@@ -1,0 +1,2 @@
+# scorecard-githubactions
+scorecard-githubactions
