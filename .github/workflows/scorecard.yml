@@ -20,50 +20,7 @@ jobs:
       - run: go version
 
 #INSTALLATION Scorecard | [Language support (go)]
-      - run: |
-          wget https://github.com/ossf/scorecard/releases/download/v5.0.0/scorecard_5.0.0_linux_amd64.tar.gz
-          tar -xvzf scorecard_5.0.0_linux_amd64.tar.gz
-          ./scorecard-linux-amd64 -h
-
-          # Define the checks to be performed by the Scorecard
-          checks:
-            - name: Binary-Artifacts
-              enabled: true
-            - name: Branch-Protection
-              enabled: false
-            - name: CII-Best-Practices
-              enabled: false
-            - name: Code-Review
-              enabled: false
-            - name: Contributors
-              enabled: false
-            - name: Dangerous-Workflow
-              enabled: false
-            - name: Dependency-Update-Tool
-              enabled: false
-            - name: Fuzzing
-              enabled: false
-            - name: License
-              enabled: false
-            - name: Maintained
-              enabled: false
-            - name: Packaging
-              enabled: false
-            - name: Pinned-Dependencies
-              enabled: false
-            - name: SAST
-              enabled: false
-            - name: Security-Policy
-              enabled: false
-            - name: Signed-Releases
-              enabled: false
-            - name: Signed-Tags
-              enabled: false
-            - name: Token-Permissions
-              enabled: false
-            - name: Vulnerabilities
-              enabled: false
-      
-          # Optional: Define the repository to be analyzed
-          repository:
-              url: "https://github.com/avishek-nayal-sony/scorecard-githubactions"
+      - name: Install Scorecard
+        run: |
+          go install github.com/ossf/scorecard/v4@latest
+          scorecard -h
