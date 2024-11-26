@@ -1,0 +1,26 @@
+name: Scorecard
+run-name: Scorecard checks
+on:
+  workflow_dispatch:
+ 
+jobs:
+  scorecard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+#SETUP GO WITH VERSION above 1.20.0
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.20.0'
+          cache: false
+          
+#CHECKING GO VERSION
+      - run: go version
+
+#INSTALLATION Scorecard | [Language support (go)]
+      - run: |
+          wget https://github.com/ossf/scorecard/releases/download/v5.0.0/scorecard_5.0.0_linux_amd64.tar.gz
+          tar -xvzf scorecard_5.0.0_linux_amd64.tar.gz
+          ./scorecard_5.0.0_linux_amd64 -h
